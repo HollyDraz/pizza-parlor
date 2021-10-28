@@ -51,6 +51,8 @@ After starting up the server, the following routes should be available. You can 
 
 **Post Data** should be an object that contains user information, *customer name*, *street address*, *city*, *zip*, *order_total* and an array of pizza id's as object. 
 
+In Postman, select the Body tab, select Raw radio button, and then a blue dropdown appears and select JSON.
+
 **Example JSON Post Data:**
 
 ```JSON
