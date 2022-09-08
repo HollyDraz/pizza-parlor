@@ -1,0 +1,36 @@
+## To Do
+-{} add goat pizza 
+
+
+-[]USE JAMBOARD TO MAP OUT THE APPLICATION
+
+## Get started
+-[]Npm Install 
+-[]Npm Run server
+-[]Npm Run Client
+-[]add reducers 
+-[]add code comments for sections for each member 
+-[] pre establish files and folders each team member needs
+    * Files needed
+    -[]
+
+
+## Base Mode
+(For base mode, only allow the user to 
+have one of each pizza in their cart.)
+-[] Create pizza database
+-[]Add Pizza to cart 
+-[]Order- Display all pizzas - this will be the home page '/'
+-[]Remove Pizza from cart
+-[]Order - Select Pizza - home page functionality, update total cost
+-[]Order - enter customer information 
+-[]Order- checkout 
+-[]Admin - Orders 
+
+
+## Stretch Goals 
+-[]Styling 
+-[]Back to previous page
+-[]Add images to public/images folder (maybe use unsplash for royalty-free pics)
+-[]add button on orders page to track delivery status 
+-[]create order details views 
