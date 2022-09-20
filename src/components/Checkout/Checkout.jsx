@@ -12,3 +12,10 @@ import { useDispatch, useSelector } from 'react-redux';
         - [ ] Clear the Cart
         - [ ] Navigate (link/router) to 'PIZZA HOME'
  */
+
+const Checkout = () => {
+        return  <>
+                </>
+} // end Checkout
+
+export default Checkout;
