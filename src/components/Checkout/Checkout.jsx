@@ -30,7 +30,54 @@ const Checkout = () => {
         const order = useSelector(store => store.order);
 
         return  <>
-                <span>Here's the checkout page!</span>
+                <h2>Step 3: Checkout</h2>
+                <div className = "customer-info">
+                        <table>
+                                <tr>
+                                        <td>
+                                                {customerName}
+                                        </td>
+                                </tr>
+                                <tr>
+                                        <td>
+                                                {streetAddress}
+                                        </td>
+                                </tr>
+                                <tr>
+                                        <td>
+                                                {city} {zipCode}
+                                        </td>
+                                </tr>
+                        </table>
+                </div>
+                <div className = "get-pizza">
+                        <span>{getPizza}</span>
+                </div>
+                <table className = "order-items">
+                        <thead>
+                                <tr>
+                                        <th>Pizza Type</th>
+                                        <th>Cost</th>
+                                </tr>
+                        </thead>
+                        <tbody>
+                                {order.map(orderItem => {
+                                        return  <tr key = {orderItem.type}>
+                                                        <td>{orderItem.type}</td>
+                                                        <td>${orderItem.price}</td>
+                                                </tr>
+                                        })
+                                }
+                        </tbody>
+                </table>
+               <div className = "total-cost">
+                        <h3>Total: ${totalCost}</h3>
+               </div>
+               <div>
+                        <button>Checkout</button>
+               </div>
+
+                
                 </>
 } // end Checkout
 

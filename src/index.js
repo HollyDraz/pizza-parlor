@@ -29,7 +29,7 @@ const streetAddress = (state = '4000 Chex Mix Way', action) => {
     return state;
 } // end streetAddress
 
-const city = (state = 'Corvallis', action) => {
+const city = (state = 'Corvallis, OR', action) => {
     console.log('city reducer', action);
     if(action.type === 'SET_CITY'){
         return action.payload;
@@ -49,7 +49,7 @@ const zipCode = (state = '11111', action) => {
     return state;
 } // end zipCode
 
-const totalCost = (state = 34.00, action) => {
+const totalCost = (state = 39.00, action) => {
     console.log('totalCost reducer', action);
     if(action.type === 'CLEAR_ALL'){
         return '';
@@ -65,7 +65,7 @@ const getPizza = (state = 'Delivery', action) => {
     return state;
 } // end getPizza
 
-const order = (state = [{type: 'maximus', price: 14.00}, {type: 'napoli', price: 10.00}, {type: 'tuscana', price: 10.00}], action) => {
+const order = (state = [{type: 'bambini', price: '5'}, {type: 'maximus', price: 14.00}, {type: 'napoli', price: 10.00}, {type: 'tuscana', price: 10.00}], action) => {
     console.log('order reducer', action);
     return state;
 } // end order
