@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
+import './Checkout.css';
 
 //Checkout componet for Bryn 
 /**
@@ -8,14 +9,15 @@ import axios from 'axios';
 - [x] useSelector to import order details (NAME, ADDRESS DELIVERY/PICKUP)
         - create reducers for all needed order details
         - useSelector to get the reducer values to Checkout.jsx
-- [ ] Table element for the ORDER posted
+- [x] Table element for the ORDER posted
         - map pizza items into a table like in React gallery
-- [ ] TOTAL tied in with REDUX
-- [ ] CHECKOUT button
+- [x] TOTAL tied in with REDUX
+- [x] CHECKOUT button
         - [ ] POST to the Database (ORDERS TABLE)
         - [ ] ALERT confirmation dialog
         - [ ] Clear the Cart
         - [ ] Navigate (link/router) to 'PIZZA HOME'
+- [] make it look better
  */
 
 const Checkout = () => {
@@ -46,7 +48,7 @@ const Checkout = () => {
                                 pizzas: order
                         }
                 }).then(response => {
-                        alert('Order submitted!');
+                        alert('Order submitted! Click OK to start new order.');
                         dispatch({type: 'CLEAR_ALL'});
                         history.push('/');
                 }).catch(error => {
@@ -55,7 +57,7 @@ const Checkout = () => {
                 });
         } // end submitOrder
 
-        return  <>
+        return  <div className = "checkout-page">
                 <h2>Step 3: Checkout</h2>
                 <div className = "customer-info">
                         <table>
@@ -79,8 +81,9 @@ const Checkout = () => {
                              
                         </table>
                 </div>
+                <br />
                 <div className = "get-pizza">
-                        <span>{getPizza}</span>
+                        <span>For {getPizza}</span>
                 </div>
                 <div className = "order-info">
                         <table className = "order-table">
@@ -108,11 +111,11 @@ const Checkout = () => {
                         <h3>Total: ${totalCost}</h3>
                </div>
                <div>
-                        <button onClick={submitOrder}>Checkout</button>
+                        <button className="submit-order" onClick={submitOrder}>Checkout</button>
                </div>
 
                 
-                </>
+                </div>
 } // end Checkout
 
 export default Checkout;
