@@ -17,7 +17,7 @@
     border-collapse: collapse;
 }
 
-.order-table, .order-table th {
+.order-table, .order-table th, .order-table td {
     border: 2px solid black;
 }
 
