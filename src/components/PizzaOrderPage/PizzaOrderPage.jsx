@@ -10,3 +10,11 @@
 - [ ] Next Navigation (Router/Link) to 
     Order Detail page
     */
+
+const PizzaOrderPage = () => {
+    return  <>
+            <span>order pizza here!</span>
+            </>
+} // end PizzaOrderPage
+
+export default PizzaOrderPage;
