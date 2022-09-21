@@ -65,7 +65,7 @@ const getPizza = (state = 'Delivery', action) => {
     return state;
 } // end getPizza
 
-const order = (state = [{type: 'bambini', price: '5'}, {type: 'maximus', price: 14.00}, {type: 'napoli', price: 10.00}, {type: 'tuscana', price: 10.00}], action) => {
+const order = (state = [{type: 'bambini', price: '5', quantity: 1}, {type: 'maximus', price: 14.00, quantity: 1}, {type: 'napoli', price: 10.00, quantity: 1}, {type: 'tuscana', price: 10.00, quantity: 1}], action) => {
     console.log('order reducer', action);
     return state;
 } // end order
