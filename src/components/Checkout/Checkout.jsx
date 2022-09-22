@@ -96,8 +96,8 @@ const Checkout = () => {
                                 </thead>
                                 <tbody>
                                         {order.map(orderItem => {
-                                                return  <tr key = {orderItem.type}>
-                                                                <td>{orderItem.type}</td>
+                                                return  <tr key = {orderItem.id}>
+                                                                <td>{orderItem.name}</td>
                                                                 <td>{orderItem.quantity}</td>
                                                                 <td>${orderItem.price}</td>
                                                         </tr>
