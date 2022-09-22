@@ -25,6 +25,11 @@ const PizzaSelect = () => {
         });
     };
     
+    const handlePizza = (pizzaInput) => {
+        console.log('in handle pizza', pizzaInput);
+        dispatch({type: 'SET_ORDER', payload: pizzaInput});
+        
+    }
 
     return(
         <>
@@ -32,7 +37,8 @@ const PizzaSelect = () => {
             <h3>Select pizza</h3>
             <ul>
                 {pizzaList.map((pizza) =>
-                <li key={pizza.id}>{pizza.name} {pizza.description} {pizza.price} </li> 
+                <li  onClick={() => handlePizza(pizza)}  
+                key={pizza.id}>{pizza.name} {pizza.description} {pizza.price} </li> 
                 )}
                 
             </ul>

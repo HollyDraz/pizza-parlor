@@ -108,9 +108,11 @@ const getPizza = (state = 'Delivery', action) => {
     return state;
 } // end getPizza
 
-const order = (state = [{type: 'bambini', price: '5', quantity: 1}, {type: 'maximus', price: 14.00, quantity: 1}, {type: 'napoli', price: 10.00, quantity: 1}, {type: 'tuscana', price: 10.00, quantity: 1}], action) => {
+const order = (state = [], action) => {
     console.log('order reducer', action);
-    if(action.type === 'CLEAR_ALL'){
+    if(action.type === 'SET_ORDER'){
+        return [...state, action.payload];
+    } else if(action.type === 'CLEAR_ALL'){
         return [];
     }
     return state;
