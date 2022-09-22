@@ -9,45 +9,88 @@ import logger from 'redux-logger';
 
 // reducers needed for Checkout component
 
-const customerName = (state = 'Eliot Test', action) => {
-    console.log('customerName reducer', action);
-    if(action.type === 'SET_NAME'){
-        return action.payload;
-    } else if(action.type === 'CLEAR_ALL'){
-        return '';
-    }
-    return state;
-} // end customerName
+const name = (state = '', action) => {
+      if (action.type === 'SET_NAME') {
+          // dispatch will have type of 'SET_NAME'
+          // and payload with the value to set
+          return action.payload;
+      } else if (action.type === 'CLEAR_ALL') {
+          return '';
+      }
+      return state;
+  }
 
-const streetAddress = (state = '4000 Chex Mix Way', action) => {
-    console.log('streetAddress reducer', action);
-    if(action.type === 'SET_STREET'){
-        return action.payload;
-    } else if(action.type === 'CLEAR_ALL'){
-        return '';
-    }
-    return state;
-} // end streetAddress
+  const address = (state = '', action) => {
+      if (action.type === 'SET_ADDRESS') {
+          // dispatch will have type of 'SET_ADDRESS'
+          // and payload with the value to set
+          return action.payload;
+      } else if (action.type === 'CLEAR_ALL') {
+          return '';
+      }
+      return state;
+  }
 
-const city = (state = 'Corvallis, OR', action) => {
-    console.log('city reducer', action);
-    if(action.type === 'SET_CITY'){
-        return action.payload;
-    } else if (action.type === 'CLEAR_ALL'){
-        return '';
-    }
-    return state;
-} // end city
+  const city = (state = '', action) => {
+      if (action.type === 'SET_CITY') {
+          // dispatch will have type of 'SET_CITY'
+          // and payload with the value to set
+          return action.payload;
+      } else if (action.type === 'CLEAR_ALL') {
+          return '';
+      }
+      return state;
+  }
 
-const zipCode = (state = '11111', action) => {
-    console.log('zipCode reducer', action);
-    if(action.type === 'SET_ZIP'){
-        return action.payload;
-    } else if (action.type === 'CLEAR_ALL'){
-        return '';
-    }
-    return state;
-} // end zipCode
+  const zip = (state = '', action) => {
+      if (action.type === 'SET_ZIP') {
+          // dispatch will have type of 'SET_ZIP'
+          // and payload with the value to set
+          return action.payload;
+      } else if (action.type === 'CLEAR_ALL') {
+          return '';
+      }
+      return state;
+  }
+// const customerName = (state = 'Eliot Test', action) => {
+//     console.log('customerName reducer', action);
+//     if(action.type === 'SET_NAME'){
+//         return action.payload;
+//     } else if(action.type === 'CLEAR_ALL'){
+//         return '';
+//     }
+//     return state;
+// } // end customerName
+
+// const streetAddress = (state = '4000 Chex Mix Way', action) => {
+//     console.log('streetAddress reducer', action);
+//     if(action.type === 'SET_STREET'){
+//         return action.payload;
+//     } else if(action.type === 'CLEAR_ALL'){
+//         return '';
+//     }
+//     return state;
+// } // end streetAddress
+
+// const city = (state = 'Corvallis, OR', action) => {
+//     console.log('city reducer', action);
+//     if(action.type === 'SET_CITY'){
+//         return action.payload;
+//     } else if (action.type === 'CLEAR_ALL'){
+//         return '';
+//     }
+//     return state;
+// } // end city
+
+// const zipCode = (state = '11111', action) => {
+//     console.log('zipCode reducer', action);
+//     if(action.type === 'SET_ZIP'){
+//         return action.payload;
+//     } else if (action.type === 'CLEAR_ALL'){
+//         return '';
+//     }
+//     return state;
+// } // end zipCode
 
 const totalCost = (state = 39.00, action) => {
     console.log('totalCost reducer', action);
@@ -76,10 +119,10 @@ const order = (state = [{type: 'bambini', price: '5', quantity: 1}, {type: 'maxi
 const storeInstance = createStore(
     combineReducers(
         {
-            customerName,
-            streetAddress,
+            name,
+            address,
             city,
-            zipCode,
+            zip,
             totalCost,
             getPizza,
             order
@@ -88,4 +131,5 @@ const storeInstance = createStore(
     applyMiddleware(logger)
 );
 
-ReactDOM.render(<Provider store={(storeInstance)}><App /></Provider>, document.getElementById('root'));
+ReactDOM.render(<Provider store={(storeInstance)}><App />
+</Provider>, document.getElementById('root'));

@@ -5,6 +5,8 @@ import './App.css';
 import { HashRouter as Router, Route, Link, useHistory } from 'react-router-dom';
 import PizzaOrderPage from '../PizzaOrderPage/PizzaOrderPage.jsx';
 import Checkout from '../Checkout/Checkout.jsx';
+import AdminPage from '../AdminPage/AdminPage.jsx';
+import OrderDetails from '../OrderDetails/OrderDetails.jsx';
 
 function App() {
 
@@ -18,11 +20,17 @@ function App() {
       <p>Pizza is great.</p> */}
       {/* Inserting Router tags below */}
       <Router>
-        <Route exact path = "/orderpizza">
+        <Route exact path = "/">
           <PizzaOrderPage />
         </Route>
         <Route exact path = "/checkout">
           <Checkout />
+        </Route>
+        <Route exact path = "/order_details">
+          <OrderDetails />
+        </Route>
+        <Route exact path = "/admin">
+          <AdminPage />
         </Route>
       </Router>
     </div>

@@ -25,10 +25,10 @@ const Checkout = () => {
         const history = useHistory();
         const dispatch = useDispatch();
         
-        const customerName = useSelector(store => store.customerName);
-        const streetAddress = useSelector(store => store.streetAddress);
+        const customerName = useSelector(store => store.name);
+        const streetAddress = useSelector(store => store.address);
         const city = useSelector(store => store.city);
-        const zipCode = useSelector(store => store.zipCode);
+        const zipCode = useSelector(store => store.zip);
         const totalCost = useSelector(store => store.totalCost);
         const getPizza = useSelector(store => store.getPizza);
         const order = useSelector(store => store.order);
