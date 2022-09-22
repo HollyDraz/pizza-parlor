@@ -20,7 +20,6 @@ const AdminPage = () => {
                 <th>Time Order Placed</th>
                 <th>Type</th>
                 <th>Cost</th>
-
             </tr>
            </table> 
         </div>
