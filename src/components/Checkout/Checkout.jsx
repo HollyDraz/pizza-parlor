@@ -115,7 +115,7 @@ const Checkout = () => {
                                 <Typography sx={{fontSize: 20}}>Total: ${totalCost}</Typography>
                         </Container>
                         <ThemeProvider theme={theme}>
-                                <Button style={{marginTop: 5}} variant="contained" color="primary" className="submit-order" onClick={submitOrder}>Checkout</Button>
+                                <Button style={{marginTop: 5}} size="large" variant="contained" color="primary" className="submit-order" onClick={submitOrder}>Checkout</Button>
                         </ThemeProvider>
                 </Container>
 } // end Checkout
