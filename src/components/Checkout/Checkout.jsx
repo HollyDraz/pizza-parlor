@@ -2,23 +2,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import './Checkout.css';
-
-//Checkout componet for Bryn 
-/**
- * ### CHECKOUT
-- [x] useSelector to import order details (NAME, ADDRESS DELIVERY/PICKUP)
-        - create reducers for all needed order details
-        - useSelector to get the reducer values to Checkout.jsx
-- [x] Table element for the ORDER posted
-        - map pizza items into a table like in React gallery
-- [x] TOTAL tied in with REDUX
-- [x] CHECKOUT button
-        - [ ] POST to the Database (ORDERS TABLE)
-        - [ ] ALERT confirmation dialog
-        - [ ] Clear the Cart
-        - [ ] Navigate (link/router) to 'PIZZA HOME'
-- [] make it look better
- */
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
+import Divider from '@mui/material/Divider';
+import Stack from '@mui/material/Stack';
+import Card from '@mui/material/Card';
+import CardMedia from '@mui/material/CardMedia';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
 
 const Checkout = () => {
 
@@ -57,65 +49,66 @@ const Checkout = () => {
                 });
         } // end submitOrder
 
-        return  <div className = "checkout-page">
-                <h2>Step 3: Checkout</h2>
-                <div className = "customer-info">
-                        <table>
-                                <tbody>
-                                        <tr>
-                                                <td>
+        return  <Container className = "checkout-page">
+                        <Typography variant="h3">Step 3: Checkout</Typography>
+                        <Container style={{display: "flex", justifyContent: "space-between"}}>
+                                <Card className = "customer-info" elevation={10} sx={{minWidth: 250, minHeight: 100, backgroundColor: "olive", color: "white"}}>
+                                        <CardContent>
+                                                <Typography sx={{fontSize: 20}}>
+                                                        Customer Info
+                                                </Typography>
+                                                <Typography>
                                                         {customerName}
-                                                </td>
-                                        </tr>
-                                        <tr>
-                                                <td>
+                                                </Typography>
+                                                <Typography>
                                                         {streetAddress}
-                                                </td>
-                                        </tr>
-                                        <tr>
-                                                <td>
+                                                </Typography>
+                                                <Typography>
                                                         {city} {zipCode}
-                                                </td>
-                                        </tr>
-                                </tbody>
-                             
-                        </table>
-                </div>
-                <br />
-                <div className = "get-pizza">
-                        <span>For {getPizza}</span>
-                </div>
-                <div className = "order-info">
-                        <table className = "order-table">
-                                <thead>
-                                        <tr>
-                                                <th>Pizza Type</th>
-                                                <th>Quantity</th>
-                                                <th>Cost</th>
-                                        </tr>
-                                </thead>
-                                <tbody>
-                                        {order.map(orderItem => {
-                                                return  <tr key = {orderItem.id}>
-                                                                <td>{orderItem.name}</td>
-                                                                <td>{orderItem.quantity}</td>
-                                                                <td>${orderItem.price}</td>
-                                                        </tr>
-                                                })
-                                        }
-                                </tbody>
-                        </table>
-                </div>
-              
-               <div className = "total-cost">
-                        <h3>Total: ${totalCost}</h3>
-               </div>
-               <div>
-                        <button className="submit-order" onClick={submitOrder}>Checkout</button>
-               </div>
-
+                                                </Typography>
+                                        </CardContent>  
+                                </Card>
+                                <Card elevation={10} sx={{minWidth: 100, maxHeight: 65, backgroundColor: "olive", color: "white"}} className = "get-pizza">
+                                        <CardContent>
+                                                <Typography sx={{fontSize: 20}}>
+                                                        For {getPizza}
+                                                </Typography>    
+                                        </CardContent>
+                                </Card>
+                        </Container>
+                        <br />
+                       
+                        <div className = "order-info">
+                                <table className = "order-table">
+                                        <thead>
+                                                <tr>
+                                                        <th>Pizza Type</th>
+                                                        <th>Quantity</th>
+                                                        <th>Cost</th>
+                                                </tr>
+                                        </thead>
+                                        <tbody>
+                                                {order.map(orderItem => {
+                                                        return  <tr key = {orderItem.id}>
+                                                                        <td>{orderItem.name}</td>
+                                                                        <td>{orderItem.quantity}</td>
+                                                                        <td>${orderItem.price}</td>
+                                                                </tr>
+                                                        })
+                                                }
+                                        </tbody>
+                                </table>
+                        </div>
                 
+                <div className = "total-cost">
+                                <h3>Total: ${totalCost}</h3>
                 </div>
+                <div>
+                                <button className="submit-order" onClick={submitOrder}>Checkout</button>
+                </div>
+
+                        
+                </Container>
 } // end Checkout
 
 export default Checkout;
