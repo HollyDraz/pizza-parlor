@@ -4,13 +4,13 @@ import axios from 'axios';
 import './Checkout.css';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
-import Divider from '@mui/material/Divider';
-import Stack from '@mui/material/Stack';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+
 
 const Checkout = () => {
 
@@ -37,7 +37,7 @@ const Checkout = () => {
                                 zip: zipCode,
                                 type: getPizza,
                                 total: totalCost,
-                                pizzas: order
+                                pizzas: order,
                         }
                 }).then(response => {
                         alert('Order submitted! Click OK to start new order.');
@@ -49,10 +49,18 @@ const Checkout = () => {
                 });
         } // end submitOrder
 
+        const theme = createTheme({
+                palette: {
+                    primary: {
+                        main: '#972a31'
+                    }
+                }
+            }); // end theme
+
         return  <Container className = "checkout-page">
-                        <Typography variant="h3">Step 3: Checkout</Typography>
+                        <Typography variant="h3">Checkout</Typography>
                         <Container style={{display: "flex", justifyContent: "space-between"}}>
-                                <Card className = "customer-info" elevation={10} sx={{minWidth: 250, minHeight: 100, backgroundColor: "olive", color: "white"}}>
+                                <Card className = "customer-info" elevation={10} sx={{minWidth: 250, minHeight: 100, backgroundColor: "darkolivegreen", color: "white"}}>
                                         <CardContent>
                                                 <Typography sx={{fontSize: 20}}>
                                                         Customer Info
@@ -68,7 +76,7 @@ const Checkout = () => {
                                                 </Typography>
                                         </CardContent>  
                                 </Card>
-                                <Card elevation={10} sx={{minWidth: 100, maxHeight: 65, backgroundColor: "olive", color: "white"}} className = "get-pizza">
+                                <Card elevation={10} sx={{minWidth: 100, maxHeight: 65, backgroundColor: "darkolivegreen", color: "white"}} className = "get-pizza">
                                         <CardContent>
                                                 <Typography sx={{fontSize: 20}}>
                                                         For {getPizza}
@@ -77,37 +85,38 @@ const Checkout = () => {
                                 </Card>
                         </Container>
                         <br />
-                       
-                        <div className = "order-info">
-                                <table className = "order-table">
-                                        <thead>
-                                                <tr>
-                                                        <th>Pizza Type</th>
-                                                        <th>Quantity</th>
-                                                        <th>Cost</th>
-                                                </tr>
-                                        </thead>
-                                        <tbody>
-                                                {order.map(orderItem => {
-                                                        return  <tr key = {orderItem.id}>
-                                                                        <td>{orderItem.name}</td>
-                                                                        <td>{orderItem.quantity}</td>
-                                                                        <td>${orderItem.price}</td>
-                                                                </tr>
-                                                        })
-                                                }
-                                        </tbody>
-                                </table>
-                        </div>
-                
-                <div className = "total-cost">
-                                <h3>Total: ${totalCost}</h3>
-                </div>
-                <div>
-                                <button className="submit-order" onClick={submitOrder}>Checkout</button>
-                </div>
+                        <Container maxWidth="md" className = "order-info">
+                                <Grid container spacing={2} className = "order-table">
+                                        {order.map(orderItem => {
+                                                return <Grid item xs={6} sm={4} md={3}>
+                                                                <Card key = {orderItem.id} elevation={10} sx={{backgroundColor: "lightgrey"}}>
+                                                                        <CardMedia 
+                                                                                component="img"
+                                                                                height="100"
+                                                                                image={orderItem.image_path}
+                                                                                alt={orderItem.description}
+                                                                        />
+                                                                        <CardContent>
+                                                                                <Typography>{orderItem.name}</Typography>
+                                                                                <Typography>${orderItem.price}</Typography>
+                                                                        </CardContent>
+                                                                        
+                                                                </Card>
+                                                        </Grid>
 
-                        
+                                                       
+                                                })
+                                        }  
+                                </Grid>
+                        </Container>
+                        <br />
+                        <br />
+                        <Container className = "total-cost">
+                                <Typography sx={{fontSize: 20}}>Total: ${totalCost}</Typography>
+                        </Container>
+                        <ThemeProvider theme={theme}>
+                                <Button style={{marginTop: 5}} variant="contained" color="primary" className="submit-order" onClick={submitOrder}>Checkout</Button>
+                        </ThemeProvider>
                 </Container>
 } // end Checkout
 

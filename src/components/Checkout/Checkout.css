@@ -17,9 +17,9 @@
     border-collapse: collapse;
 }
 
-.order-table, .order-table th, .order-table td {
+/* .order-table, .order-table th, .order-table td {
     border: 2px solid black;
-}
+} */
 
 .order-table th {
     padding-top: 15px;
