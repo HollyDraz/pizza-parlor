@@ -2,23 +2,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 import './Checkout.css';
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
+import Card from '@mui/material/Card';
+import CardMedia from '@mui/material/CardMedia';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-//Checkout componet for Bryn 
-/**
- * ### CHECKOUT
-- [x] useSelector to import order details (NAME, ADDRESS DELIVERY/PICKUP)
-        - create reducers for all needed order details
-        - useSelector to get the reducer values to Checkout.jsx
-- [x] Table element for the ORDER posted
-        - map pizza items into a table like in React gallery
-- [x] TOTAL tied in with REDUX
-- [x] CHECKOUT button
-        - [ ] POST to the Database (ORDERS TABLE)
-        - [ ] ALERT confirmation dialog
-        - [ ] Clear the Cart
-        - [ ] Navigate (link/router) to 'PIZZA HOME'
-- [] make it look better
- */
 
 const Checkout = () => {
 
@@ -45,7 +37,7 @@ const Checkout = () => {
                                 zip: zipCode,
                                 type: getPizza,
                                 total: totalCost,
-                                pizzas: order
+                                pizzas: order,
                         }
                 }).then(response => {
                         alert('Order submitted! Click OK to start new order.');
@@ -57,65 +49,75 @@ const Checkout = () => {
                 });
         } // end submitOrder
 
-        return  <div className = "checkout-page">
-                <h2>Step 3: Checkout</h2>
-                <div className = "customer-info">
-                        <table>
-                                <tbody>
-                                        <tr>
-                                                <td>
-                                                        {customerName}
-                                                </td>
-                                        </tr>
-                                        <tr>
-                                                <td>
-                                                        {streetAddress}
-                                                </td>
-                                        </tr>
-                                        <tr>
-                                                <td>
-                                                        {city} {zipCode}
-                                                </td>
-                                        </tr>
-                                </tbody>
-                             
-                        </table>
-                </div>
-                <br />
-                <div className = "get-pizza">
-                        <span>For {getPizza}</span>
-                </div>
-                <div className = "order-info">
-                        <table className = "order-table">
-                                <thead>
-                                        <tr>
-                                                <th>Pizza Type</th>
-                                                <th>Quantity</th>
-                                                <th>Cost</th>
-                                        </tr>
-                                </thead>
-                                <tbody>
-                                        {order.map(orderItem => {
-                                                return  <tr key = {orderItem.id}>
-                                                                <td>{orderItem.name}</td>
-                                                                <td>{orderItem.quantity}</td>
-                                                                <td>${orderItem.price}</td>
-                                                        </tr>
-                                                })
-                                        }
-                                </tbody>
-                        </table>
-                </div>
-              
-               <div className = "total-cost">
-                        <h3>Total: ${totalCost}</h3>
-               </div>
-               <div>
-                        <button className="submit-order" onClick={submitOrder}>Checkout</button>
-               </div>
+        const theme = createTheme({
+                palette: {
+                    primary: {
+                        main: '#972a31'
+                    }
+                }
+            }); // end theme
 
-                
-                </div>
+        return  <Container className = "checkout-page">
+                        <Typography variant="h3">Checkout</Typography>
+                        <Container style={{display: "flex", justifyContent: "space-between"}}>
+                                <Card className = "customer-info" elevation={10} sx={{minWidth: 250, minHeight: 100, backgroundColor: "darkolivegreen", color: "white"}}>
+                                        <CardContent>
+                                                <Typography sx={{fontSize: 20}}>
+                                                        Customer Info
+                                                </Typography>
+                                                <Typography>
+                                                        {customerName}
+                                                </Typography>
+                                                <Typography>
+                                                        {streetAddress}
+                                                </Typography>
+                                                <Typography>
+                                                        {city} {zipCode}
+                                                </Typography>
+                                        </CardContent>  
+                                </Card>
+                                <Card elevation={10} sx={{minWidth: 100, maxHeight: 65, backgroundColor: "darkolivegreen", color: "white"}} className = "get-pizza">
+                                        <CardContent>
+                                                <Typography sx={{fontSize: 20}}>
+                                                        For {getPizza}
+                                                </Typography>    
+                                        </CardContent>
+                                </Card>
+                        </Container>
+                        <br />
+                        <Container maxWidth="md" className = "order-info">
+                                <Grid container spacing={2} className = "order-table">
+                                        {order.map(orderItem => {
+                                                return <Grid item xs={6} sm={4} md={3}>
+                                                                <Card key = {orderItem.id} elevation={10} sx={{backgroundColor: "lightgrey"}}>
+                                                                        <CardMedia 
+                                                                                component="img"
+                                                                                height="100"
+                                                                                image={orderItem.image_path}
+                                                                                alt={orderItem.description}
+                                                                        />
+                                                                        <CardContent>
+                                                                                <Typography>{orderItem.name}</Typography>
+                                                                                <Typography>${orderItem.price}</Typography>
+                                                                        </CardContent>
+                                                                        
+                                                                </Card>
+                                                        </Grid>
+
+                                                       
+                                                })
+                                        }  
+                                </Grid>
+                        </Container>
+                        <br />
+                        <br />
+                        <Container className = "total-cost">
+                                <Typography sx={{fontSize: 20}}>Total: ${totalCost}</Typography>
+                        </Container>
+                        <ThemeProvider theme={theme}>
+                                <Button style={{marginTop: 5}} size="large" variant="contained" color="primary" className="submit-order" onClick={submitOrder}>Checkout</Button>
+                        </ThemeProvider>
+                </Container>
 } // end Checkout
 
 export default Checkout;

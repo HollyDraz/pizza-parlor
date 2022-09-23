@@ -92,7 +92,8 @@ const name = (state = '', action) => {
 //     return state;
 // } // end zipCode
 
-const totalCost = (state = 39.00, action) => {
+// action type needs added to so that it updates when products are selected
+const totalCost = (state = 0, action) => {
     console.log('totalCost reducer', action);
     if(action.type === 'CLEAR_ALL'){
         return '';
@@ -100,6 +101,7 @@ const totalCost = (state = 39.00, action) => {
     return state;
 } // end totalCost
 
+// need to include a place on PizzaOrderPage for use to choose delivery or pickup
 const getPizza = (state = 'Delivery', action) => {
     console.log('getPizza reducer', action);
     if(action.type === 'CLEAR_ALL'){
