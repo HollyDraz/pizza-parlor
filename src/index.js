@@ -95,7 +95,9 @@ const name = (state = '', action) => {
 // action type needs added to so that it updates when products are selected
 const totalCost = (state = 0, action) => {
     console.log('totalCost reducer', action);
-    if(action.type === 'CLEAR_ALL'){
+    if(action.type === 'SET_TOTAL_COST'){
+        return state + action.payload;
+    } else if (action.type === 'CLEAR_ALL'){
         return '';
     }
     return state;
