@@ -98,7 +98,7 @@ const totalCost = (state = 0, action) => {
     if(action.type === 'SET_TOTAL_COST'){
         return state + action.payload;
     } else if (action.type === 'CLEAR_ALL'){
-        return '';
+        return 0;
     }
     return state;
 } // end totalCost
