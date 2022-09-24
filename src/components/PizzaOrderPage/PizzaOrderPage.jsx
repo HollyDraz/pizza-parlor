@@ -29,7 +29,11 @@ const PizzaSelect = () => {
     
     const handlePizza = (pizzaInput) => {
         console.log('in handle pizza', pizzaInput);
-        console.log(order.includes(pizzaInput.id));
+        console.log(order.includes(pizzaInput));
+        if(order.includes(pizzaInput)){
+            alert('Each item can only be added to the cart once. Sorry for any inconvenience!');
+            return;
+        }
         pizzaInput.quantity = 1;
         dispatch({type: 'SET_ORDER', payload: pizzaInput});
         dispatch({type: 'SET_TOTAL_COST', payload: Number(pizzaInput.price)});
