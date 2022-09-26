@@ -1,3 +1,6 @@
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
 // Admin page for brianna (feel better <3)
 /**
  * #### ADMIN PAGE
@@ -8,6 +11,26 @@
 
 
 const AdminPage = () => {
+    let [orderList, setOrderList] = useState([]);
+
+    // On load, fetch order data from the server
+    useEffect(() => {
+        console.log('in useEffect')
+        fetchOrders();
+    }, []);
+
+    const fetchOrders = () => {
+        axios({
+            method: 'GET',
+            url: '/api/order'
+        }).then((response) => {
+            setOrderList(response.data);
+        }).catch((err) => {
+            console.log(err);
+            alert('Something went wrong.');
+        });
+    };
+
     return (
         <>
         <div>
@@ -21,6 +44,16 @@ const AdminPage = () => {
                 <th>Type</th>
                 <th>Cost</th>
             </tr>
+            {
+                orderList.map(order => {
+                    return <tr key={order.id}>
+                        <td>{order.customer_name}</td>
+                        <td>{order.time}</td>
+                        <td>{order.type}</td>
+                        <td>{order.total}</td>
+                    </tr>
+                })
+            }
            </table> 
         </div>
         </>
