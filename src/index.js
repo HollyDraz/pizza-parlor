@@ -104,13 +104,23 @@ const totalCost = (state = 0, action) => {
 } // end totalCost
 
 // need to include a place on PizzaOrderPage for use to choose delivery or pickup
-const getPizza = (state = 'Delivery', action) => {
-    console.log('getPizza reducer', action);
-    if(action.type === 'CLEAR_ALL'){
-        return '';
-    }
-    return state;
-} // end getPizza
+// const getPizza = (state = 'Delivery', action) => {
+//     console.log('getPizza reducer', action);
+//     if(action.type === 'CLEAR_ALL'){
+//         return '';
+//     }
+//     return state;
+// } // end getPizza
+  const delivery = (state = '', action) => {
+      if (action.type === 'SET_DELIVERY') {
+          // dispatch will have type of 'SET_DELIVERY'
+          // and payload with the value to set
+          return action.payload;
+      } else if (action.type === 'CLEAR_ALL') {
+          return '';
+      }
+      return state;
+  }
 
 const order = (state = [], action) => {
     console.log('order reducer', action);
@@ -130,7 +140,7 @@ const storeInstance = createStore(
             city,
             zip,
             totalCost,
-            getPizza,
+            delivery,
             order
         }
     ),
