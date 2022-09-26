@@ -12,7 +12,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 // Allows us to navigate to another page
 import { useHistory } from 'react-router-dom'; // history import
-//import {Box, FormControl, FormControlLabel, RadioGroup, Radio} from '@mui/material'
+import {Box, FormControl, FormLabel, FormControlLabel, RadioGroup, Radio} from '@mui/material'
 
 const customerInfo = () => {
     const history = useHistory(); // useHistory
@@ -21,6 +21,7 @@ const customerInfo = () => {
     const address = useSelector(store => store.address); // getter
     const city = useSelector(store => store.city); // getter
     const zip = useSelector(store => store.zip); // getter
+    const delivery = useSelector(store => store.delivery); // getter
 //     const delivery = useSelector(store => store.delivery); // getter
     const dispatch = useDispatch();
 
@@ -41,10 +42,10 @@ const customerInfo = () => {
       // Pass the data to our reducer
       dispatch({ type: 'SET_ZIP', payload: event.target.value});
   }
-//   const handleDelivery = (event) => {
-//       // Pass the data to our reducer
-//       dispatch({ type: 'SET_DELIVERY', payload: event.target.value});
-//   }
+  const handleDelivery = (event) => {
+      // Pass the data to our reducer
+      dispatch({ type: 'SET_DELIVERY', payload: event.target.value});
+  }
 
     return (
         <>
@@ -59,15 +60,15 @@ const customerInfo = () => {
                 <br />
                 <input value={zip} onChange={handleZip} className="input" type="text" placeholder='Zip'/>
                 <button onClick={() => history.push('/checkout')} className="button">Next</button>
-            </div>
-            {/* <Box>
+            
+            <Box>
                   <FormControl>
                         <FormLabel id='delivery-options-label'>
                             Delivery Options  
                         </FormLabel>
                         <RadioGroup
                         name='delivery-options'
-                        aria-labellby='delivery-options-label'
+                        aria-labelledby='delivery-options-label'
                         value={delivery}
                         onChange={handleDelivery}
                         >
@@ -75,20 +76,10 @@ const customerInfo = () => {
                         <FormControlLabel control={<Radio />} label='Delivery' value='Delivery'/>
                         </RadioGroup>
                   </FormControl>
-            </Box> */}
+            </Box>
+            </div>
         </>
     );
 }
-
-//   const delivery = (state = '', action) => {
-//       if (action.type === 'SET_DELIVERY') {
-//           // dispatch will have type of 'SET_DELIVERY'
-//           // and payload with the value to set
-//           return action.payload;
-//       } else if (action.type === 'CLEAR_ALL') {
-//           return '';
-//       }
-//       return state;
-//   }
 
 export default customerInfo;
