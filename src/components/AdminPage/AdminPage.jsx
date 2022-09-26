@@ -38,12 +38,15 @@ const AdminPage = () => {
         </div>
         <div>
            <table>
+            <thead>
             <tr>
                 <th>Name</th>
                 <th>Time Order Placed</th>
                 <th>Type</th>
                 <th>Cost</th>
             </tr>
+            </thead>
+            <tbody>
             {
                 orderList.map(order => {
                     return <tr key={order.id}>
@@ -54,6 +57,7 @@ const AdminPage = () => {
                     </tr>
                 })
             }
+            </tbody>
            </table> 
         </div>
         </>
