@@ -12,7 +12,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 // Allows us to navigate to another page
 import { useHistory } from 'react-router-dom'; // history import
-import {Box, FormControl, FormLabel, FormControlLabel, RadioGroup, Radio} from '@mui/material'
+import {Box, FormControl, FormLabel, FormControlLabel, RadioGroup, Radio, positions} from '@mui/material'
 
 const customerInfo = () => {
     const history = useHistory(); // useHistory
@@ -61,7 +61,8 @@ const customerInfo = () => {
                 <input value={zip} onChange={handleZip} className="input" type="text" placeholder='Zip'/>
                 <button onClick={() => history.push('/checkout')} className="button">Next</button>
             
-            <Box>
+            <Box sx={{ border: '1px solid',
+                        borderRadius: 25,}}>
                   <FormControl>
                         <FormLabel id='delivery-options-label'>
                             Delivery Options  
