@@ -85,7 +85,7 @@ const Checkout = () => {
                                                 }  
                                         </Grid>
                                 </Container>
-                                <Card className = "customer-info" elevation={10} sx={{minWidth: 150, maxHeight: 150, backgroundColor: "darkolivegreen", color: "white"}}>
+                                <Card className = "customer-info" elevation={10} sx={{minWidth: 150, maxHeight: 200, backgroundColor: "darkolivegreen", color: "white"}}>
                                         <CardContent>
                                                 <Typography sx={{fontSize: 20}}>
                                                         Customer Info
