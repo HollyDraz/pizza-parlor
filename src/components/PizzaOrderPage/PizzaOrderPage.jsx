@@ -8,6 +8,10 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Unstable_Grid2';
+//Card import 
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
 //import for button 
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
@@ -65,13 +69,17 @@ const PizzaSelect = () => {
             <Box sx={{ flexGrow: 1 }}>
             <Grid xs="auto" container spacing={4} rowSpacing={3} columnSpacing={{xs:4, sm: 5, md:6 }}>
                 {pizzaList.map((pizza) =>
-                <Item>
+              
+                    <Card variant="outlined">
+                        <CardContent>
                 <p onClick={() => handlePizza(pizza)}  
                 key={pizza.id}> 
-                {pizza.name} 
-                {pizza.description} 
-                {pizza.price} </p> <br/>
-                 </Item>
+                {pizza.name} <br/>
+                {pizza.description}  <br/>
+                {pizza.price} </p> 
+                        </CardContent>
+                    </Card>
+                 
                 )}
                
             </Grid>
