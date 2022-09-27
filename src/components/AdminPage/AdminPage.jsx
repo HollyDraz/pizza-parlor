@@ -35,7 +35,7 @@ const AdminPage = () => {
     return (
         <>
         <div>
-            <h1>Hello, Admin!</h1>
+            <h2>Hello, Admin!</h2>
         </div>
         <div>
            <table>
