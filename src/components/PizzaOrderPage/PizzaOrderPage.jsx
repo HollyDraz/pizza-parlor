@@ -2,12 +2,15 @@ import {useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-//
+//imports for grid
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Unstable_Grid2';
+//import for button 
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 
 
 
@@ -60,20 +63,21 @@ const PizzaSelect = () => {
             <h3>Select pizza</h3>
             <ul>
             <Box sx={{ flexGrow: 1 }}>
-            <Grid container spacing={4} rowSpacing={3}>
-                
-   
+            <Grid xs="auto" container spacing={4} rowSpacing={3} columnSpacing={{xs:4, sm: 5, md:6 }}>
                 {pizzaList.map((pizza) =>
                 <Item>
-                <li  onClick={() => handlePizza(pizza)}  
-                key={pizza.id}>{pizza.name} {pizza.description} {pizza.price} </li> 
+                <p onClick={() => handlePizza(pizza)}  
+                key={pizza.id}> 
+                {pizza.name} 
+                {pizza.description} 
+                {pizza.price} </p> <br/>
                  </Item>
                 )}
                
             </Grid>
             </Box>
             </ul>
-            <button onClick={() => history.push('/order_details')}> Next page</button>
+            <Button color="error" variant="contained" onClick={() => history.push('/order_details')}> Next page</Button>
         </div>
         </>
     )
