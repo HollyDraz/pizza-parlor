@@ -2,7 +2,22 @@ import {useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+//
+import * as React from 'react';
+import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Unstable_Grid2';
 
+
+
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
 
 const PizzaSelect = () => {
     //history to next page 
@@ -44,11 +59,19 @@ const PizzaSelect = () => {
         <div>
             <h3>Select pizza</h3>
             <ul>
+            <Box sx={{ flexGrow: 1 }}>
+            <Grid container spacing={4} rowSpacing={3}>
+                
+   
                 {pizzaList.map((pizza) =>
+                <Item>
                 <li  onClick={() => handlePizza(pizza)}  
                 key={pizza.id}>{pizza.name} {pizza.description} {pizza.price} </li> 
+                 </Item>
                 )}
-                
+               
+            </Grid>
+            </Box>
             </ul>
             <button onClick={() => history.push('/order_details')}> Next page</button>
         </div>
