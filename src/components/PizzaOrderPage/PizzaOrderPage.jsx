@@ -66,8 +66,8 @@ const PizzaSelect = () => {
         <div>
             <h3>Select pizza</h3>
             <ul>
-            <Box sx={{ flexGrow: 1 }}>
-            <Grid xs="auto" container spacing={4} rowSpacing={3} columnSpacing={{xs:4, sm: 5, md:6 }}>
+            <Box className="box" sx={{ flexGrow: 1 }}>
+            <Grid className="grid"  xs="auto" container spacing={4} rowSpacing={3} columnSpacing={{xs:4, sm: 5, md:6 }}>
                 {pizzaList.map((pizza) =>
               
                     <Card variant="outlined">
