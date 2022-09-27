@@ -8,7 +8,7 @@ const PizzaSelect = () => {
     //history to next page 
     const history = useHistory(); 
     const dispatch = useDispatch();
-    let [pizzaList, setPizzaList] = useState([]);
+    let [pizzaList, setPizzaList] = useState([]); 
     const order = useSelector(store => store.order);
 
     useEffect(() => {
