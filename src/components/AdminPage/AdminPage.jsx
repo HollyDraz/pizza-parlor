@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './AdminPage.css';
+import SimpleDateTime from 'react-simple-timestamp-to-date';
 
 // Admin page for brianna (feel better <3)
 /**
@@ -32,6 +33,12 @@ const AdminPage = () => {
         });
     };
 
+    // const formatDate = (dateString) => {
+    //     const options = { year: "numeric", month: "long", day: "numeric"}
+    //     return new Date(dateString).toLocaleDateString(undefined, options)
+    // }
+    // console.log(formatDate(dateString));
+
     return (
         <>
         <div>
@@ -52,7 +59,13 @@ const AdminPage = () => {
                 orderList.map(order => {
                     return <tr key={order.id}>
                         <td>{order.customer_name}</td>
-                        <td>{order.time}</td>
+                        <td><SimpleDateTime 
+                                format="MDY" 
+                                dateSeparator="/"
+                                timeSeparator=":"
+                                meridians="1">
+                                {order.time}
+                            </SimpleDateTime></td>
                         <td>{order.type}</td>
                         <td>{order.total}</td>
                     </tr>
