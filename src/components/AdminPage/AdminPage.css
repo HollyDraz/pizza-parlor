@@ -15,11 +15,11 @@ td, th {
 
 /* tr:nth-child(even) {
     background-color: darkolivegreen;
-}
+} */
 
 tr:nth-child(odd) {
-    background-color: lightgrey;
-} */
+    background-color: darkgrey;
+}
 
 tr {
     background-color: #d9d9d9;
