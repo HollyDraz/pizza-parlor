@@ -71,12 +71,13 @@ const PizzaSelect = () => {
                 {pizzaList.map((pizza) =>
               
                     <Card variant="outlined">
-                        <CardContent>
+                        <CardContent className='pizza-info'>
                 <p onClick={() => handlePizza(pizza)}  
                 key={pizza.id}> 
                 {pizza.name} <br/>
                 {pizza.description}  <br/>
                 {pizza.price} </p> 
+                
                         </CardContent>
                     </Card>
                  
