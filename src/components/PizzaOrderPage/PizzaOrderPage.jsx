@@ -71,11 +71,6 @@ const PizzaSelect = () => {
             <ul>
             <Box className="box" sx={{ flexGrow: 2 }}>
             <Grid className="grid"
-            container
-            spacing={0}
-            alignItems="center"
-            justify="center"
-            style={{ minHeight: "100vh" }} 
             rowSpacing={6} 
             columnSpacing={{xs:5, sm: 6, md:7 }}
             xs="auto">
