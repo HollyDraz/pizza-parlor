@@ -18,13 +18,13 @@ import Button from '@mui/material/Button';
 
 
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
+// const Item = styled(Paper)(({ theme }) => ({
+//   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+//   ...theme.typography.body2,
+//   padding: theme.spacing(1),
+//   textAlign: 'center',
+//   color: theme.palette.text.secondary,
+// }));
 
 const PizzaSelect = () => {
     //history to next page 
@@ -76,8 +76,9 @@ const PizzaSelect = () => {
             xs="auto">
             {/* pizza list here  */}
                 {pizzaList.map((pizza) =>
-                    <Card class="pizza-card" variant='outlined' >
-                        <CardContent className='pizza-info'>
+                    <Card class="pizza-card" variant="outlined">
+                        
+                        <CardContent className='pizza-info' variant="outlined">
                 <p key={pizza.id}> 
                 {pizza.name} <br/>
                 {pizza.description}  <br/>
@@ -88,6 +89,7 @@ const PizzaSelect = () => {
                 variant="contained">Add to cart</Button>
                 </p>
                         </CardContent>
+                     
                     </Card>
                  
                 )}
