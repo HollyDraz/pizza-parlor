@@ -66,17 +66,26 @@ const PizzaSelect = () => {
         <div>
             <h3>Select pizza</h3>
             <ul>
-            <Box className="box" sx={{ flexGrow: 1 }}>
-            <Grid className="grid"  xs="auto" container spacing={4} rowSpacing={3} columnSpacing={{xs:4, sm: 5, md:6 }}>
+            <Box className="box" sx={{ flexGrow: 2 }}>
+            <Grid className="grid"
+            container
+            spacing={0}
+            alignItems="center"
+            justify="center"
+            style={{ minHeight: "100vh" }} 
+            rowSpacing={6} 
+            columnSpacing={{xs:4, sm: 5, md:6 }}
+            xs="auto">
                 {pizzaList.map((pizza) =>
-              
                     <Card variant="outlined">
                         <CardContent className='pizza-info'>
                 <p onClick={() => handlePizza(pizza)}  
                 key={pizza.id}> 
                 {pizza.name} <br/>
                 {pizza.description}  <br/>
-                {pizza.price} </p> 
+                {pizza.price} <br />
+                <Button color="error" variant="contained">Add to cart</Button>
+                </p> 
                 
                         </CardContent>
                     </Card>
