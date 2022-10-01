@@ -67,7 +67,14 @@ const PizzaSelect = () => {
     return(
         <>
         <div>
-            <h3 class="header">Select pizza</h3>
+            <h3 
+            class="header" 
+            style={
+                {
+                    color: "white",
+                    backgroundColor: "darkolivegreen"}
+                }>
+                Select pizza</h3>
             <ul>
             <Box className="box" sx={{ flexGrow: 2 }}>
             <Grid className="grid"

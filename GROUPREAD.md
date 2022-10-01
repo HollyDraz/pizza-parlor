@@ -41,6 +41,8 @@ From there reference the database.sql file and copy paste that into postico
 -Html 
 -Css
 -Redux
+-Material UI 
+
 
 ## ACKNOWLEDGEMENTS:
 Thank you to Prime Academy for equipping us with the information to make this app a reality. Thank you to all the cohorts who worked on this project together: Bryn, Alex, Brianna, and Holly. 
