@@ -18,6 +18,7 @@ import {Box,
         FormControlLabel, 
         RadioGroup, 
         Radio,
+        Button,
         } from '@mui/material';
 import './OrderDetails.css'
 
@@ -114,7 +115,7 @@ const customerInfo = () => {
                   </FormControl>
             </Box>
             <Box sx={{height: '50',}} >
-            <button sx={{height: '50'}} onClick={() => history.push('/checkout')} className="button">Next</button>
+            <Button style={{marginTop: 5}} size="large" variant="contained" color="primary" className="Next-button" onClick={() => history.push('/checkout')}>Next</Button>
             </Box>
             </div>
         </>
