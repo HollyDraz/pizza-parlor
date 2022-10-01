@@ -22,7 +22,7 @@ const Checkout = () => {
         const city = useSelector(store => store.city);
         const zipCode = useSelector(store => store.zip);
         const totalCost = useSelector(store => store.totalCost);
-        const getPizza = useSelector(store => store.getPizza);
+        const delivery = useSelector(store => store.delivery);
         const order = useSelector(store => store.order);
 
         const submitOrder = () => {
@@ -35,7 +35,7 @@ const Checkout = () => {
                                 street_address: streetAddress,
                                 city: city,
                                 zip: zipCode,
-                                type: getPizza,
+                                type: delivery,
                                 total: totalCost,
                                 pizzas: order,
                         }
@@ -85,7 +85,7 @@ const Checkout = () => {
                                                 }  
                                         </Grid>
                                 </Container>
-                                <Card className = "customer-info" elevation={10} sx={{minWidth: 150, maxHeight: 150, backgroundColor: "darkolivegreen", color: "white"}}>
+                                <Card className = "customer-info" elevation={10} sx={{minWidth: 150, maxHeight: 200, backgroundColor: "darkolivegreen", color: "white"}}>
                                         <CardContent>
                                                 <Typography sx={{fontSize: 20}}>
                                                         Customer Info
@@ -107,7 +107,7 @@ const Checkout = () => {
                                 <Card elevation={10} sx={{minWidth: 100, maxHeight: 65, backgroundColor: "darkolivegreen", color: "white"}} className = "get-pizza">
                                         <CardContent>
                                                 <Typography sx={{fontSize: 20}}>
-                                                        For {getPizza}
+                                                        For {delivery}
                                                 </Typography>    
                                         </CardContent>
                                 </Card>
