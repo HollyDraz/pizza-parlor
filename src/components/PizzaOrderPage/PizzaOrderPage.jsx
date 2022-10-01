@@ -81,13 +81,16 @@ const PizzaSelect = () => {
             xs="auto">
             {/* pizza list here  */}
                 {pizzaList.map((pizza) =>
-                    <Card class="pizza-card" variant="outlined" >
+                    <Card class="pizza-card" variant='outlined' >
                         <CardContent className='pizza-info'>
                 <p key={pizza.id}> 
                 {pizza.name} <br/>
                 {pizza.description}  <br/>
                 {pizza.price} <br />
-                <Button onClick={() => handlePizza(pizza)}  style={{backgroundColor: "darkolivegreen"}} variant="contained">Add to cart</Button>
+
+                <Button onClick={() => handlePizza(pizza)}  
+                style={{backgroundColor: "darkolivegreen"}} 
+                variant="contained">Add to cart</Button>
                 </p>
                         </CardContent>
                     </Card>
