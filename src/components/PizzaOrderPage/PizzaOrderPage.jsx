@@ -61,10 +61,13 @@ const PizzaSelect = () => {
         dispatch({type: 'SET_TOTAL_COST', payload: Number(pizzaInput.price)});
     }
 
+
+
+
     return(
         <>
         <div>
-            <h3>Select pizza</h3>
+            <h3 class="header">Select pizza</h3>
             <ul>
             <Box className="box" sx={{ flexGrow: 2 }}>
             <Grid className="grid"
@@ -74,27 +77,26 @@ const PizzaSelect = () => {
             justify="center"
             style={{ minHeight: "100vh" }} 
             rowSpacing={6} 
-            columnSpacing={{xs:4, sm: 5, md:6 }}
+            columnSpacing={{xs:5, sm: 6, md:7 }}
             xs="auto">
+            {/* pizza list here  */}
                 {pizzaList.map((pizza) =>
-                    <Card variant="outlined">
+                    <Card class="pizza-card" variant="outlined" >
                         <CardContent className='pizza-info'>
-                <p onClick={() => handlePizza(pizza)}  
-                key={pizza.id}> 
+                <p key={pizza.id}> 
                 {pizza.name} <br/>
                 {pizza.description}  <br/>
                 {pizza.price} <br />
-                <Button color="error" variant="contained">Add to cart</Button>
-                </p> 
-                
+                <Button onClick={() => handlePizza(pizza)}  style={{backgroundColor: "darkolivegreen"}} variant="contained">Add to cart</Button>
+                </p>
                         </CardContent>
                     </Card>
                  
                 )}
-               
             </Grid>
             </Box>
             </ul>
+            <br />
             <Button color="error" variant="contained" onClick={() => history.push('/order_details')}> Next page</Button>
         </div>
         </>
