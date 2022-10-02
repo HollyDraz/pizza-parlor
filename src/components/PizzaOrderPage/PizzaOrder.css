@@ -4,10 +4,16 @@
 
 }
 
-.grid{ 
+.header { 
+    color: darkolivegreen;
+    
+}
 
+h3{
+    text-align: left;
 }
 
 .pizza-info{ 
     text-align: right;
+    width: "90%"
 }

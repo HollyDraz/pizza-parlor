@@ -18,13 +18,13 @@ import Button from '@mui/material/Button';
 
 
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
+// const Item = styled(Paper)(({ theme }) => ({
+//   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+//   ...theme.typography.body2,
+//   padding: theme.spacing(1),
+//   textAlign: 'center',
+//   color: theme.palette.text.secondary,
+// }));
 
 const PizzaSelect = () => {
     //history to next page 
@@ -61,31 +61,49 @@ const PizzaSelect = () => {
         dispatch({type: 'SET_TOTAL_COST', payload: Number(pizzaInput.price)});
     }
 
+
+
+
     return(
         <>
         <div>
-            <h3>Select pizza</h3>
+            <h3 
+            class="header" 
+            style={
+                {
+                    color: "white",
+                    backgroundColor: "darkolivegreen"}
+                }>
+                Select pizza</h3>
             <ul>
-            <Box className="box" sx={{ flexGrow: 1 }}>
-            <Grid className="grid"  xs="auto" container spacing={4} rowSpacing={3} columnSpacing={{xs:4, sm: 5, md:6 }}>
+            <Box className="box" sx={{ flexGrow: 2 }}>
+            <Grid className="grid"
+            rowSpacing={6} 
+            columnSpacing={{xs:5, sm: 6, md:7 }}
+            xs="auto">
+            {/* pizza list here  */}
                 {pizzaList.map((pizza) =>
-              
-                    <Card variant="outlined">
-                        <CardContent className='pizza-info'>
-                <p onClick={() => handlePizza(pizza)}  
-                key={pizza.id}> 
+                    <Card class="pizza-card" variant="outlined">
+                        
+                        <CardContent className='pizza-info' variant="outlined">
+                <p key={pizza.id}> 
                 {pizza.name} <br/>
                 {pizza.description}  <br/>
-                {pizza.price} </p> 
-                
+                {pizza.price} <br />
+
+                <Button onClick={() => handlePizza(pizza)}  
+                style={{backgroundColor: "darkolivegreen"}} 
+                variant="contained">Add to cart</Button>
+                </p>
                         </CardContent>
+                     
                     </Card>
                  
                 )}
-               
             </Grid>
             </Box>
             </ul>
+            <br />
             <Button color="error" variant="contained" onClick={() => history.push('/order_details')}> Next page</Button>
         </div>
         </>
