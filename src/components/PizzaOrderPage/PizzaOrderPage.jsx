@@ -86,8 +86,9 @@ const PizzaSelect = () => {
                     <Card class="pizza-card" variant="outlined">
                         
                         <CardContent className='pizza-info' variant="outlined">
-                <p key={pizza.id}> 
-                {pizza.name} <br/>
+                <p key={pizza.id}>  
+
+                <h3> {pizza.name}</h3>
                 {pizza.description}  <br/>
                 {pizza.price} <br />
 
