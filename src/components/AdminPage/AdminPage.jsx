@@ -1,13 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
-// Admin page for brianna (feel better <3)
-/**
- * #### ADMIN PAGE
-- [ ] Each PATH /admin link and router
-- [ ] Display NAME, TIME OF ORDER, TYPE, TOTAL (in a Table)
-- [ ] 'GET' request for data
- */
+import './AdminPage.css';
 
 
 const AdminPage = () => {
@@ -25,16 +18,24 @@ const AdminPage = () => {
             url: '/api/order'
         }).then((response) => {
             setOrderList(response.data);
+            console.log('response', response.data)
+            console.log('orderList', orderList);
+            formatDates(response.data);
         }).catch((err) => {
             console.log(err);
             alert('Something went wrong.');
         });
     };
 
+    const formatDates = (dateString) => {
+        const options = { year: "numeric", month: "long", day: "numeric", hour: "numeric", minute: "2-digit"}
+        return new Date(dateString).toLocaleDateString(undefined, options)
+    }
+
     return (
         <>
         <div>
-            <h1>Hello, Admin!</h1>
+            <h2>Hello, Admin!</h2>
         </div>
         <div>
            <table>
@@ -51,7 +52,7 @@ const AdminPage = () => {
                 orderList.map(order => {
                     return <tr key={order.id}>
                         <td>{order.customer_name}</td>
-                        <td>{order.time}</td>
+                        <td>{formatDates(order.time)}</td>
                         <td>{order.type}</td>
                         <td>{order.total}</td>
                     </tr>

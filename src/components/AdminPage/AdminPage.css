@@ -1,0 +1,37 @@
+table {
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid;
+    border-collapse: collapse;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+td, th {
+    border: 1px solid;
+    padding: 8px;
+    text-align: left;
+}
+
+/* tr:nth-child(even) {
+    background-color: darkolivegreen;
+} */
+
+tr:nth-child(odd) {
+    background-color: darkgrey;
+}
+
+tr {
+    background-color: #d9d9d9;
+}
+
+tr:hover {
+    background-color: darkolivegreen;
+}
+
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: maroon;
+    color: black;
+}

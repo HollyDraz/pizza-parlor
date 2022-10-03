@@ -2,8 +2,10 @@
 A delicious pizza is requested to be made! How can we design and execute an app that allows us to have the user select a pizza, enter the information, and then allow us to have that data saved into a database! 
 
 ## ScreenShots
-<!-- ![Checkout Page](/Images/Screen%20Shot%202022-10-03%20at%2012.13.11%20PM.png "checkout page") -->
+![Checkout Page](/images/Screen%20Shot%202022-10-03%20at%2012.13.11%20PM.png "checkout page")
+![Admin Page](/images/admin.png "admin page")
 
+![Admin page](Images/admin.png)
 ## PREREQUISITES: 
 Node.js 
 Nodemon
