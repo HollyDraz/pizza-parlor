@@ -67,30 +67,33 @@ const PizzaSelect = () => {
     return(
         <>
         <div>
-            <h3 
+            <h1 
             class="header" 
             style={
                 {
                     color: "white",
                     backgroundColor: "darkolivegreen"}
                 }>
-                Select pizza</h3>
+                Select pizza</h1>
             <ul>
-            <Box className="box" sx={{ flexGrow: 2 }}>
-            <Grid className="grid"
+            <Box className="box" sx={{ flexGrow: 2 }}  >
+            <Grid 
+            
+            className="grid"
             rowSpacing={6} 
             columnSpacing={{xs:5, sm: 6, md:7 }}
             xs="auto">
             {/* pizza list here  */}
                 {pizzaList.map((pizza) =>
-                    <Card class="pizza-card" variant="outlined">
+                    <Card sx={{ border: 1 }} class="pizza-card" variant="outlined">
                         
-                        <CardContent className='pizza-info' variant="outlined">
+                        <CardContent sx={{ border: 1 }} className='pizza-info' variant="outlined">
                 <p key={pizza.id}>  
 
                 <h3> {pizza.name}</h3>
+               <b> ${pizza.price} </b> <br />
                 {pizza.description}  <br/>
-                {pizza.price} <br />
+                 
 
                 <Button onClick={() => handlePizza(pizza)}  
                 style={{backgroundColor: "darkolivegreen"}} 
