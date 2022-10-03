@@ -103,7 +103,7 @@ const PizzaSelect = () => {
             </Grid>
             </Box>
             </ul>
-            <br />
+            
             <Button color="error" variant="contained" onClick={() => history.push('/order_details')}> Next page</Button>
         </div>
         </>
