@@ -10,8 +10,9 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Unstable_Grid2';
 //Card import 
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
+//import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
+import { CardMedia } from '@mui/material';
 //import for button 
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
@@ -85,14 +86,13 @@ const PizzaSelect = () => {
             xs="auto">
             {/* pizza list here  */}
                 {pizzaList.map((pizza) =>
-                    <Card sx={{ border: 1 }} class="pizza-card" variant="outlined">
-                        
+                    <Card  sx={{ border: 1, boxShadow: 2 }} class="pizza-card" variant="outlined">
+    
                         <CardContent sx={{ border: 1 }} className='pizza-info' variant="outlined">
-                <p key={pizza.id}>  
-
-                <h3> {pizza.name}</h3>
-               <b> ${pizza.price} </b> <br />
-                {pizza.description}  <br/>
+                    <p key={pizza.id}>  
+                    <h3> {pizza.name}</h3>
+                    <b> ${pizza.price} </b> <br />
+                        {pizza.description}  <br/>
                  
 
                 <Button onClick={() => handlePizza(pizza)}  
