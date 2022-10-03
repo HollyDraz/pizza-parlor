@@ -2,6 +2,7 @@
 A delicious pizza is requested to be made! How can we design and execute an app that allows us to have the user select a pizza, enter the information, and then allow us to have that data saved into a database! 
 
 ## ScreenShots
+![Order page](Images/order.png)
 ![Review page](Images/review.png)
 
 ![Admin page](Images/admin.png)
